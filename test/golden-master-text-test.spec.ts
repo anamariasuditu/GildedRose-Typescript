@@ -15,11 +15,11 @@ describe("Gilded Rose", () => {
         expect(gildedRose.items[0].sellIn).to.equal(6);
         expect(gildedRose.items[0].quality).to.equal(41);
     });
-    it("Should not increase/decrease for AgedBrie with Quality>50",() => {
-        const gildedRose = new GildedRose([ new Item('Aged Brie', 15, 60) ]);
+    it("Should not increase/decrease Quality for AgedBrie with Quality>=50",() => {
+        const gildedRose = new GildedRose([ new Item('Aged Brie', 15, 50) ]);
         gildedRose.updateQuality();
         expect(gildedRose.items[0].sellIn).to.equal(14);
-        expect(gildedRose.items[0].quality).to.equal(60);
+        expect(gildedRose.items[0].quality).to.equal(50);
     });
     it("Should decrease Quality",() => {
         const gildedRose = new GildedRose([ new Item('Something', 15, 35) ]);
@@ -27,7 +27,7 @@ describe("Gilded Rose", () => {
         expect(gildedRose.items[0].sellIn).to.equal(14);
         expect(gildedRose.items[0].quality).to.equal(34);
     });
-    it("Should not decrease Quality<0",() => {
+    it("Should not decrease Quality<=0",() => {
         const gildedRose = new GildedRose([ new Item('Something', 0, 0) ]);
         gildedRose.updateQuality();
         expect(gildedRose.items[0].sellIn).to.equal(-1);
