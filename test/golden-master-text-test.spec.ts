@@ -51,6 +51,13 @@ describe("Gilded Rose", () => {
         expect(gildedRose.items[0].sellIn).to.equal(-2);
         expect(gildedRose.items[0].quality).to.equal(0);
     });
+    it("Should decrease Quality twice for Conjured Mana Cake",() => {
+        const gildedRose = new GildedRose([ new Item('Conjured Mana Cake', 10, 20) ]);
+        gildedRose.updateQuality();
+        expect(gildedRose.items[0].sellIn).to.equal(9);
+        expect(gildedRose.items[0].quality).to.equal(18);
+    });
+
 
 
 
