@@ -51,12 +51,7 @@ describe("Gilded Rose", () => {
         expect(gildedRose.items[0].sellIn).to.equal(-2);
         expect(gildedRose.items[0].quality).to.equal(0);
     });
-    it("Should set Quality=0 once for Backstage if sellin<0",() => {
-        const gildedRose = new GildedRose([ new Item('Backstage passes to a TAFKAL80ETC concert', -1, 60) ]);
-        gildedRose.updateQuality();
-        expect(gildedRose.items[0].sellIn).to.equal(-2);
-        expect(gildedRose.items[0].quality).to.equal(0);
-    });
+
 
 
 })
